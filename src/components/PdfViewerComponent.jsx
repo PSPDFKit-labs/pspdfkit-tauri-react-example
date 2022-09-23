@@ -17,10 +17,12 @@ export default function PdfViewerComponent(props) {
         baseUrl: `${window.location.protocol}//${window.location.host}/${
           import.meta.env.PUBLIC_URL ?? ""
         }`,
-		toolbarItems: [...PSPDFKit.defaultToolbarItems, {
+		toolbarItems: [...PSPDFKit.defaultToolbarItems.filter(item => item.type !== 'export-pdf'), {
 			type: "custom",
+			title: "Save",
 			async onPress() {
-				// Saving logic goes here
+				const buffer = await instance.exportPDF()
+				props.onSaveClick(buffer)
 			}
 		}]
       });
