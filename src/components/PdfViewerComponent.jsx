@@ -17,6 +17,12 @@ export default function PdfViewerComponent(props) {
         baseUrl: `${window.location.protocol}//${window.location.host}/${
           import.meta.env.PUBLIC_URL ?? ""
         }`,
+		toolbarItems: [...PSPDFKit.defaultToolbarItems, {
+			type: "custom",
+			async onPress() {
+				// Saving logic goes here
+			}
+		}]
       });
     })();
 
