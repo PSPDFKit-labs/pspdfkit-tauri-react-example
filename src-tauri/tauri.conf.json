@@ -7,7 +7,7 @@
     "distDir": "../build"
   },
   "package": {
-    "productName": "pspdfkit-tauri-react-example",
+    "productName": "PSPDFKit for Tauri",
     "version": "0.1.0"
   },
   "tauri": {
